@@ -1,0 +1,24 @@
+{
+    "bookSearch": {
+        "lambda": {
+            "lineMessage": {
+                "events": [
+                    {
+                        "type": "message",
+                        "replyToken": "9b821803acd249298d9a2580aefbcd17",
+                        "source": {
+                            "userId": "U6576e4dfcbd7d17071d890c3c481471a",
+                            "type": "user"
+                        },
+                        "timestamp": 1515066504354,
+                        "message": {
+                            "type": "text",
+                            "id": "7256057856562",
+                            "text": "動物の本のランキング"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
