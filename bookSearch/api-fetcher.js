@@ -23,8 +23,16 @@ const fetchOne = (genre,callbacks) =>{
             
             res.on('end', (res) => {
                 const result = JSON.parse(body);
-                console.log(result.items[0].volumeInfo.title);
-                callbacks.onFetch(result.items[0].volumeInfo.title,result.items[0].volumeInfo.imageLinks.smallThumbnail);
+                if (result.items){
+                    const i = result.items.length;
+                    const item = result.items[Math.floor( Math.random() * i)];
+                    console.log(item.volumeInfo.title);
+
+                    callbacks.onFetch(item.volumeInfo.title,item.volumeInfo.imageLinks.smallThumbnail);
+                }else{
+                    console.log("探している本は見つかりませんでした");
+                    callbacks.onNotFetch();//onNotFetchにコールバックする
+                }
             });
         }).on('error',(e)=>{
             //そもそもrequestがエラーになった場合

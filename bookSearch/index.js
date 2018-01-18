@@ -15,7 +15,9 @@ exports.handler = (event, context, callback) => {
                 onFetch:(bookName,thumbnail) => {
                     console.log(bookName);
                     console.log("ok");
-                    callback(null,{message:"『"+bookName+"』だよ\n"+thumbnail});
+                    //thumbnailあるバージョン
+                    //callback(null,{message:"『"+bookName+"』だよ\n"+thumbnail});
+                    callback(null,{message:"『"+bookName+"』だよ\n"});
                 },
                 onNotFetch:()=>callback() //結果が無かったので何も返さない
             })
@@ -23,7 +25,7 @@ exports.handler = (event, context, callback) => {
         onRankingBook:(genre) => {
             apiFetcher.fetchRanking(genre,{
                 onFetch:(bookNames) => {
-                    callback(null,{message:bookNames.map(bookName => "『"+bookName+"』") .join("\n")+"だよ"});
+                    callback(null,{message:bookNames.map(bookName => "・『"+bookName+"』") .join("\n")+"だよ"});
                 },
                 onNotFetch:()=>callback() //結果が無かったので何も返さない
             })
